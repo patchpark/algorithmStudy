@@ -1,7 +1,7 @@
 """
-문제
 
-4바이트 마다 long 하나씩 출력
+https://www.acmicpc.net/problem/25314
+
 """
 
 byte = int(input())
