@@ -8,7 +8,7 @@ totalTime = 0
 
 for i in range(20):
     name, time, grade = input().split()
-    time1 = int(time)
+    time1 = float(time)
     if grade != 'P':
         totalTime += time1
         for j in range(len(alphabetGrade)):
@@ -19,4 +19,4 @@ for i in range(20):
 
 average = totalGrade/totalTime
 
-print(f'{average:.4f}')
+print(f'{average:.5f}')
