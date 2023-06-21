@@ -4,24 +4,23 @@ import java.util.Scanner;
 	
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		
 		Scanner sc = new Scanner(System.in);
 		
 		int up = sc.nextInt();
 		int down = sc.nextInt();
 		int height = sc.nextInt();
-		int check = 0;
-		int day = 0;
 		
-		while(true) {
-			check += up;
-			day++;
-			if(height <= check) break;
-			check -= down;
+		int a = height-up;
+		
+		if(a%(up-down) == 0) {
+			System.out.println(a/(up-down) + 1);
+		}else {
+			System.out.println((int)(a/(up-down)) + 2);
 		}
 		
-		System.out.println(day);
+		
 	}
 
 }
