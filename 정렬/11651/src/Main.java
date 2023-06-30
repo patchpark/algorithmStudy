@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 import java.util.Comparator;
 
-// https://www.acmicpc.net/submit/11650
+// https://www.acmicpc.net/submit/11651
 
 public class Main {
 	public static void main(String[] args) throws Exception {
@@ -22,11 +22,11 @@ public class Main {
 		Arrays.sort(arr, new Comparator<Integer[]>() { // 정렬 방식 재정의
 			@Override
 			public int compare(Integer[] o1, Integer[] o2) {
-				if(o1[0].equals(o2[0])) { // 같으면 y비교
-					return o1[1] - o2[1];
-				}
-				else {					  // 다르면 x비교
+				if(o1[1].equals(o2[1])) { // 같으면 x비교
 					return o1[0] - o2[0];
+				}
+				else {					  // 다르면 y비교
+					return o1[1] - o2[1];
 				}
 			}
 		});	
