@@ -28,21 +28,22 @@ public class Main {
 			map.put(i, poketmon);
 			map2.put(poketmon, i);
 		}
-//		
+		
 //		for(Integer i : map.keySet()) {
 //			System.out.println(i + " " + map.get(i));
 //		}
 //		for(String i : map2.keySet()) {
 //			System.out.println(i + " " + map2.get(i));
 //		}
+//	
 		
 		
 		for(int i=0; i<test; i++) {
 			String answer = br.readLine();
 			if(isString(answer)) {
-				sb.append(map2.get(answer)).append("\n");
+				sb.append(map.get(Integer.parseInt(answer))).append("\n");
 			}else {
-			    sb.append(map.get(answer)).append("\n");
+			    sb.append(map2.get(answer)).append("\n");
 			}
 			
 		}
