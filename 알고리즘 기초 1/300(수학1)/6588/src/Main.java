@@ -5,58 +5,40 @@ import java.util.ArrayList;
 
 // https://www.acmicpc.net/problem/6588
 
-
 public class Main {
-
-	public static void main(String[] args) throws IOException{
-		
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		while(true) {
-			int a = Integer.parseInt(br.readLine());
-			goldbach(a);
-			
+
+		boolean prime[] = new boolean[1000001];
+		prime[0] = prime[1] = true; // 소수는 false
+		for (int i = 2; i < prime.length; i++) {
+			if (!prime[i]) {
+				for (int j = i + i; j < prime.length; j += i) {
+					prime[j] = true;
+				}
+			}
+
 		}
-		
-		
+
+		int n = Integer.parseInt(br.readLine());
+
+		while (n != 0) {
+			boolean isProve = false;
+			for (int i = 2; i <= n / 2; i++) {
+				if (!prime[i] && !prime[n - i]) {
+					System.out.println(n + " = " + i + " + " + (n - i));
+					isProve = true;
+					break;
+				}
+			}
+
+			if (!isProve) {
+				System.out.println("Goldbach's conjecture is wrong.");
+			}
+
+			n = Integer.parseInt(br.readLine());
+
+		}
+
 	}
-	
-	
-	static void goldbach(int a) {
-		int[] arr = new int[1000001];
-		StringBuilder sb = new StringBuilder();
-
-		// 배열 초기화  
-		for (int i = 2; i <= arr.length-1; i++) {
-			arr[i] = i;
-		}
-
-		// 2부터 시작해서 i의 배수들을 배열에서 지워준다
-		for (int i = 2; i <= arr.length-1; i++) {
-			// 이미 지워진 수는 건너뛴다
-			if (arr[i] == 0)
-				continue;
-			for (int j = i + i; j <= arr.length-1; j += i) {
-				arr[j] = 0;
-			}
-		}
-		
-		ArrayList<Integer> arrList = new ArrayList<Integer>();
-		
-		for(int i=2; i<arr.length; i++) {
-			if(arr[i]!=0) {
-				arrList.add(i);
-			}
-		}
-		
-		for(int i : arrList) {
-			if(arrList.contains(a-i)) {
-				System.out.println( a + " = " + i + " + " + (a-i));
-				break;
-			}
-		}
-		
-	}
-
-	
 }
