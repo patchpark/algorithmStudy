@@ -37,8 +37,8 @@ public class Main {
 	public static void TSP(int start, int current, long cost){
 		if(visitedCheck()) {
 			if(arr[current][start]!=0) {
-				min = Math.min(min, cost + arr[current][0]);
-			}
+				min = Math.min(min, cost + arr[current][start]);
+			} 
 			
 		}else {
 			for(int i=1; i<n; i++){
