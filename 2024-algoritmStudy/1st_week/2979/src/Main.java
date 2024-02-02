@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -8,31 +7,37 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int[] arr = new int[3];
-		int[] start = new int[3];
-		int[] end = new int[3];
+		int A = sc.nextInt();
+		int B = sc.nextInt();
+		int C = sc.nextInt();
+		
+		int sum = 0;
+		
+		int[] timeCheck = new int[100];
 		
 		for(int i=0; i<3; i++) {
-			arr[i] = sc.nextInt();
+			int start = sc.nextInt();
+			int end = sc.nextInt();
+			
+			
+			for(int j=start-1;j<end-1;j++) {
+				timeCheck[j]++;
+			}
 		}
 		
-		for(int i=0; i<3; i++) {
-			start[i] = sc.nextInt();
-			end[i] = sc.nextInt();
+		
+		
+		
+		for(int i=0; i<100; i++) {
+			if(timeCheck[i] == 1)
+				sum += A;
+			if(timeCheck[i] == 2)
+				sum += 2*B;
+			if(timeCheck[i]==3)
+				sum += 3*C;
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
+		System.out.println(sum);
 	}
 	
 }
